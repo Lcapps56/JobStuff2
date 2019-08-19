@@ -24,7 +24,9 @@ module.exports = function (sequelize, DataTypes) {
     a_pct75: DataTypes.STRING,
     a_pct90: DataTypes.STRING,
     annual: DataTypes.BOOLEAN,
-    hourly: DataTypes.BOOLEAN
+    hourly: DataTypes.BOOLEAN,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
   return Job;
 };
