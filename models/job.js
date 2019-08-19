@@ -2,7 +2,8 @@ module.exports = function (sequelize, DataTypes) {
   var Job = sequelize.define("Job", {
     id: {
       type: DataTypes.MEDIUMINT,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     area: DataTypes.MEDIUMINT,
     occ_code: DataTypes.STRING,
