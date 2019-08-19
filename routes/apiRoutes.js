@@ -1,24 +1,37 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+module.exports = function (app) {
+  app.post("/results", function (req, res) {
+    if (req.body.query === 1) {
+      // States where job is most common
+      db.Job.findAll({
+        where: {
+          occ_code: req.body.code,
+          order: ["loc_q", "DESC"]
+        }
+      })
+    }
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+    if (req.body.query === 2) {
+      // Most common job in state
+      db.Job.findAll({
+        where: {
+          area: req.body.state,
+          order: ["jobs_1000", "DESC"],
+          limit: 10
+        }
+      })
+    }
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
+    if (req.body.query === 3) {
+      // Highest paying job in state
+      db.Job.findAll({
+        where: {
+          area: req.body.state,
+          order: ["a_mean", "DESC"],
+          limit: 10
+        }
+      })
+    };
+  })
+  };
