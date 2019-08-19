@@ -1,3 +1,61 @@
 .list-group-item {
   line-height: 2.5;
 }
+body {
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  height: 150px;
+  width: 100%;
+  background: #892b2b;
+}
+header h1, h4{
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  line-height: 35px;
+  font-family: 'Noticia Text', serif;
+  font-weight: bold;
+}
+
+/* search  */
+#search{
+  text-align: center;
+  padding-top: 50px;
+  font-family: 'Arvo', serif;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+}
+#submit{
+  text-align: center;
+  border-radius: 5%;
+  margin-left: 45%;
+  margin-top: 15px;
+  background: none;
+  border: solid 1px black;
+  font-family: 'Arvo', serif;
+  font-family: 'Quicksand', sans-serif;
+}
+/* graphics style */
+#map{
+  margin-left: 15%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* footer style */
+footer{
+  height: 50px;
+  width: 100%;
+  background: #892b2b;
+  position: fixed;
+  bottom: 0px;
+  padding-top: 5px;
+}
+footer h6{
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  font-family: 'Noticia Text', serif;
+  font-weight: bold;
+}
