@@ -1,20 +1,21 @@
 .list-group-item {
   line-height: 2.5;
 }
-body {
+body{
   margin: 0px;
-  padding: 0px;
 }
 header{
-  height: 150px;
+  height: 110px;
   width: 100%;
   background: #892b2b;
+  position: fixed;
+  top: 0px;
 }
 header h1, h4{
   color: white;
   text-align: center;
-  padding-top: 20px;
-  line-height: 35px;
+  padding-top: 10px;
+  line-height: 15px;
   font-family: 'Noticia Text', serif;
   font-weight: bold;
 }
@@ -22,7 +23,7 @@ header h1, h4{
 /* search  */
 #search{
   text-align: center;
-  padding-top: 50px;
+  padding-top: 100px;
   font-family: 'Arvo', serif;
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
@@ -31,7 +32,7 @@ header h1, h4{
   text-align: center;
   border-radius: 5%;
   margin-left: 45%;
-  margin-top: 15px;
+  margin-top: 10px;
   background: none;
   border: solid 1px black;
   font-family: 'Arvo', serif;
@@ -58,4 +59,16 @@ footer h6{
   padding-top: 10px;
   font-family: 'Noticia Text', serif;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 800px){
+  #map{
+    margin-left: 0;
+    width: 200px;
+  }
+}
+
+
+#jobsList{
+  width: 100px;
 }
