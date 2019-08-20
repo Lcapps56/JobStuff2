@@ -6,9 +6,11 @@ module.exports = function (app) {
       // States where job is most common
       db.Job.findAll({
         where: {
-          occ_code: req.body.code,
-          order: ["loc_q", "DESC"]
-        }
+          occ_code: req.body.code
+        },
+        order: [["loc_q", "DESC"]]
+      }).then(function(data) {
+        res.json(data)
       })
     }
 
@@ -16,10 +18,12 @@ module.exports = function (app) {
       // Most common job in state
       db.Job.findAll({
         where: {
-          area: req.body.state,
-          order: ["jobs_1000", "DESC"],
-          limit: 10
-        }
+          area: req.body.state
+        },
+        limit: 10,
+        order: [["jobs_1000", "DESC"]]
+      }).then(function(data) {
+        res.json(data)
       })
     }
 
@@ -28,9 +32,11 @@ module.exports = function (app) {
       db.Job.findAll({
         where: {
           area: req.body.state,
-          order: ["a_mean", "DESC"],
-          limit: 10
-        }
+        },
+        limit: 10,
+        order: [["a_mean", "DESC"]]
+      }).then(function(data) {
+        res.json(data)
       })
     };
   })
