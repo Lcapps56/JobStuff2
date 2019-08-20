@@ -1,18 +1,24 @@
 var path = require("path");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Load index page
-  app.get("/", function (req, res) {
+  app.get("/", function(req, res) {
     res.render("index");
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    res.sendFile(path.join(__dirname, "../"))
+  app.get("/example/:id", function(req, res) {
+    res.sendFile(path.join(__dirname, "../"));
   });
 
   // Render 404 page for any unmatched routes
   // app.get("*", function (req, res) {
   //   res.render("404");
   // });
+
+  app.get("/results", function(req, res) {
+    res.render("results", {
+      results: queryResults
+    });
+  });
 };

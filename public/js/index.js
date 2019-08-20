@@ -1,97 +1,80 @@
-$(document).ready(function (event) {
-  $("path").on("click", function () {
-    var mapState = $(this).attr("aria-label").trim();
-    console.log(mapState)
-  })
+$(document).ready(function () {
 
+  var stateList = [
+    ["AL", "Alabama"],
+    ["AK", "Alaska"],
+    ["AR", "Arkansas"],
+    ["AZ", "Arizona"],
+    ["CA", "California"],
+    ["CO", "Colorado"],
+    ["CT", "Connecticut"],
+    ["DE", "Delaware"],
+    ["FL", "Florida"],
+    ["GA", "Georgia"],
+    ["HI", "Hawaii"],
+    ["IA", "Iowa"],
+    ["ID", "Idaho"],
+    ["IL", "Illinois"],
+    ["IN", "Indiana"],
+    ["KS", "Kansas"],
+    ["KY", "Kentucky"],
+    ["LA", "Louisiana"],
+    ["MA", "Massachusetts"],
+    ["MD", "Maryland"],
+    ["ME", "Maine"],
+    ["MI", "Michigan"],
+    ["MN", "Minnesota"],
+    ["MO", "Missouri"],
+    ["MS", "Mississippi"],
+    ["MT", "Montana"],
+    ["NC", "North Carolina"],
+    ["ND", "North Dakota"],
+    ["NE", "Nebraska"],
+    ["NH", "New Hampshire"],
+    ["NJ", "New Jersey"],
+    ["NM", "New Mexico"],
+    ["NV", "Nevada"],
+    ["NY", "New York"],
+    ["OH", "Ohio"],
+    ["OK", "Oklahoma"],
+    ["OR", "Oregon"],
+    ["PA", "Pennsylvania"],
+    ["RI", "Rhode Island"],
+    ["SC", "South Carolina"],
+    ["SD", "South Dekota"],
+    ["TN", "Tennessee"],
+    ["TX", "Texas"],
+    ["UT", "Utah"],
+    ["VA", "Virginia"],
+    ["VT", "Vermont"],
+    ["WA", "Washington"],
+    ["WI", "Wisconsin"],
+    ["WV", "West Virginia"],
+    ["WY", "Wyoming"]
+  ];
 
+  // $("path").on("click", function () {
+  //   var mapState = $(this).attr("aria-label").trim();
+  // })
 
-  $("#submit").on("click", function (event) {
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
     var Values = {
-      type: $("#type").val(),
-      location: $("#location").val(),
-      job: $("#jobsList").val()
+      query: $("#type").val().trim(),
+      state: $("#location").val().trim(),
+      code: $("#jobsList").val().trim()
     }
-    console.log(Values)
-
-    // $.ajax("/results",{
-    // type: "POST",
-    // data: Values
-    // }).then(function(event){
-    //   console.log("sent")
-    // })
-  })
-
-
-  $(document).ready(function () {
-    var jobs = []
-
-    $.ajax({
-      URL: "/api/jobs",
-      type: "GET"
-    }).then(function (response) {
-      for (var i = 0; i < response.length; i++) {
-        jobs.push(reponse[i].occ_title)
-      }
-      console.log(jobs)
-      $("#jobsList").select2({
-        data: jobs
-      })
+    console.log(Values);
+    $.ajax("/results", {
+      type: "POST",
+      data: Values
+    }).then(function() {
+      console.log("Post sent");
+      $.ajax("/results", {
+        type: "GET"
+      }).then(function() {
+        console.log("GET sent");
+      });
     })
-
   });
-
-})
-
-var stateList = [
-  ["AL", "Alabama"],
-  ["AK", "Alaska"],
-  ["AR", "Arkansas"],
-  ["AZ", "Arizona"],
-  ["CA", "California"],
-  ["CO", "Colorado"],
-  ["CT", "Connecticut"],
-  ["DE", "Delaware"],
-  ["FL", "Florida"],
-  ["GA", "Georgia"],
-  ["HI", "Hawaii"],
-  ["IA", "Iowa"],
-  ["ID", "Idaho"],
-  ["IL", "Illinois"],
-  ["IN", "Indiana"],
-  ["KS", "Kansas"],
-  ["KY", "Kentucky"],
-  ["LA", "Louisiana"],
-  ["MA", "Massachusetts"],
-  ["MD", "Maryland"],
-  ["ME", "Maine"],
-  ["MI", "Michigan"],
-  ["MN", "Minnesota"],
-  ["MO", "Missouri"],
-  ["MS", "Mississippi"],
-  ["MT", "Montana"],
-  ["NC", "North Carolina"],
-  ["ND", "North Dakota"],
-  ["NE", "Nebraska"],
-  ["NH", "New Hampshire"],
-  ["NJ", "New Jersey"],
-  ["NM", "New Mexico"],
-  ["NV", "Nevada"],
-  ["NY", "New York"],
-  ["OH", "Ohio"],
-  ["OK", "Oklahoma"],
-  ["OR", "Oregon"],
-  ["PA", "Pennsylvania"],
-  ["RI", "Rhode Island"],
-  ["SC", "South Carolina"],
-  ["SD", "South Dekota"],
-  ["TN", "Tennessee"],
-  ["TX", "Texas"],
-  ["UT", "Utah"],
-  ["VA", "Virginia"],
-  ["VT", "Vermont"],
-  ["WA", "Washington"],
-  ["WI", "Wisconsin"],
-  ["WV", "West Virginia"],
-  ["WY", "Wyoming"]
-]
+});
