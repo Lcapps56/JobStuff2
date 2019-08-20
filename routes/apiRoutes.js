@@ -1,4 +1,7 @@
 var db = require("../models");
+
+var queryResults;
+
 module.exports = function (app) {
 
   app.get("/api/jobs", function (req, res) {
@@ -12,10 +15,10 @@ module.exports = function (app) {
       }
       console.log(jobList[0])
     })
-  })
+  });
 
   app.post("/results", function (req, res) {
-    if (req.body.query === 1) {
+    if (req.body.query === "1") {
       // States where job is most common
       db.Job.findAll({
         where: {
@@ -23,11 +26,11 @@ module.exports = function (app) {
         },
         order: [["loc_q", "DESC"]]
       }).then(function (data) {
-        res.json(data)
+        queryResults = data;
       })
     }
 
-    if (req.body.query === 2) {
+    if (req.body.query === "2") {
       // Most common job in state
       db.Job.findAll({
         where: {
@@ -40,7 +43,7 @@ module.exports = function (app) {
       })
     }
 
-    if (req.body.query === 3) {
+    if (req.body.query === "3") {
       // Highest paying job in state
       db.Job.findAll({
         where: {
@@ -52,7 +55,7 @@ module.exports = function (app) {
         res.json(data)
       })
     };
-    if (req.body.query === 4) {
+    if (req.body.query === "4") {
       // AVG salary for this job
       db.Job.findAll({
         where: {
@@ -71,7 +74,7 @@ module.exports = function (app) {
         });
       });
     };
-    if (req.body.query === 5) {
+    if (req.body.query === "5") {
       // everything about a job
       db.Job.findAll({
         where: {
@@ -83,7 +86,7 @@ module.exports = function (app) {
         res.json(data)
       })
     }
-    if (req.body.query === 6) {
+    if (req.body.query === "6") {
       // everything about a state
       db.Job.findAll({
         where: {

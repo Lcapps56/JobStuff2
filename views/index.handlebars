@@ -64,9 +64,9 @@
         <option value="WY">Wyoming</option>
       </select> for
       <select id="jobsList">
-        {{#each jobs}}
-        <option value="{{jobList}}">{{jobList}}</option>
-        {{/each}}
+
+        <option value="11-1021">11-1021</option>
+
       </select>
 
 
@@ -112,20 +112,3 @@
 <footer>
   <h6>copyright and stuff</h6>
 </footer>
-
-<script>
-  $(function () {
-    var jobsList = []
-    $.ajax("/api/jobs", {
-      type: "GET",
-    }).then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        jobsList.push(data[i].occ_title)
-      }
-      console.log(jobsList)
-      $("#jobsList").select2({
-        data: jobsList
-      })
-    })
-  })
-</script>
