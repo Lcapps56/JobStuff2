@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    area: DataTypes.MEDIUMINT,
+    state_code: DataTypes.STRING,
     occ_code: DataTypes.STRING,
     occ_title: DataTypes.STRING,
     tot_emp: DataTypes.STRING,
