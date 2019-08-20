@@ -1,6 +1,19 @@
 var db = require("../models");
-
+var jobs = []
 module.exports = function (app) {
+
+  app.get("/api/jobs", function (req, res) {
+    db.Job.findAll({
+      group: "occ_title"
+    }).then(function (response) {
+      console.log(response)
+      for (var i = 0; i < response.length; i++) {
+        jobs.push(response[i].occ_title);
+      }
+      return jobs
+    })
+  })
+
   app.post("/results", function (req, res) {
     if (req.body.query === 1) {
       // States where job is most common
@@ -9,7 +22,7 @@ module.exports = function (app) {
           occ_code: req.body.code
         },
         order: [["loc_q", "DESC"]]
-      }).then(function(data) {
+      }).then(function (data) {
         res.json(data)
       })
     }
@@ -22,7 +35,7 @@ module.exports = function (app) {
         },
         limit: 10,
         order: [["jobs_1000", "DESC"]]
-      }).then(function(data) {
+      }).then(function (data) {
         res.json(data)
       })
     }
@@ -35,9 +48,11 @@ module.exports = function (app) {
         },
         limit: 10,
         order: [["a_mean", "DESC"]]
-      }).then(function(data) {
+      }).then(function (data) {
         res.json(data)
       })
     };
   })
-  };
+};
+
+module

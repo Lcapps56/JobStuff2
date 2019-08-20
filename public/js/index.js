@@ -1,6 +1,10 @@
-$("path").click(function(event){
-  console.log("clicked")
-})
+$(document).ready(function(event){
+  $("path").on("click", function() {
+    var mapState = $(this).attr("aria-label").trim();
+    console.log(mapState)
+  })
+
+
 
 $("#submit").on("click", function(event){
     var Values = {
@@ -18,9 +22,23 @@ $("#submit").on("click", function(event){
   // })
 })
 
+
 $(document).ready(function(){
-  var jobs = ["one", "two", "three", "four", "five"]
-  $("#jobsList").select2({
-    data:jobs
+  var jobs = []
+
+  $.ajax({
+    URL: "/api/jobs",
+    type: "GET"
+  }).then(function(response){
+    for(var i=0; i<response.length; i++){
+      jobs.push(reponse[i].occ_title)
+    }
+    console.log(jobs)
+    $("#jobsList").select2({
+      data:jobs
+    })
   })
+
 });
+
+})
