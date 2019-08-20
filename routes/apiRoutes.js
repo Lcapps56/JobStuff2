@@ -1,16 +1,16 @@
 var db = require("../models");
-var jobs = []
 module.exports = function (app) {
 
   app.get("/api/jobs", function (req, res) {
+    var jobList = [];
     db.Job.findAll({
+      attributes: ["occ_title"],
       group: "occ_title"
-    }).then(function (response) {
-      console.log(response)
-      for (var i = 0; i < response.length; i++) {
-        jobs.push(response[i].occ_title);
+    }).then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        jobList.push(data[i].occ_title);
       }
-      return jobs
+      console.log(jobList[0])
     })
   })
 
@@ -79,7 +79,7 @@ module.exports = function (app) {
         },
         limit: 10,
         order: [["jobs_1000"], ["tot_emp"], ["h_mean"], ["a_mean"], ["h_pct10"], ["h_pct25"], ["h_pct50"], ["h_pct75"], ["h_pct90"], ["a_pct10"], ["a_pct25"], ["a_pct50"], ["a_pct75"], ["a_pct90"], ["annual"], ["hourly"]]
-      }).then(function(data){
+      }).then(function (data) {
         res.json(data)
       })
     }
@@ -88,10 +88,10 @@ module.exports = function (app) {
       db.Job.findAll({
         where: {
           area: req.body.state
-        }, 
+        },
         limit: 10,
         order: [["occ_title"], ["tot_emp"], ["h_mean"], ["a_mean"], ["h_pct10"], ["h_pct25"], ["h_pct50"], ["h_pct75"], ["h_pct90"], ["a_pct10"], ["a_pct25"], ["a_pct50"], ["a_pct75"], ["a_pct90"], ["annual"], ["hourly"]]
-      }).then(function(data){
+      }).then(function (data) {
         res.json(data)
       })
     }
