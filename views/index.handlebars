@@ -15,7 +15,7 @@
     <section>
       <div class="col-md-8">
         <div id="search">
-          <p>I want to view the <select id="type">
+          <p id="paragraph">I want to view the <select id="type">
               <option value="1">States where THIS jobs is most common</option>
               <option value="2">Most common Job</option>
               <option value="3">Highest paying job</option>
@@ -88,13 +88,11 @@
       <div class="row">
         <div class="col-md-2">
         </div>
-
-
         <button id="submit">View Statistics</button>
       </div>
 
 
-  </div>
+      {{!-- </div>
   <div class="row">
     <div class="col">
       <div id="map">
@@ -133,11 +131,9 @@
       </section>
       ​
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+  </div> --}}
 
-      <form action="/api/jobs" method="POST">
+      <form action="/api/jobs" method="POST" id="form">
         <div class="form-group">
           <label for="stateCode">State Code</label>
           <input type="email" class="form-control" id="stateCode" placeholder="NC">
@@ -147,106 +143,104 @@
           <input type="text" class="form-control" id="occCode" placeholder="11-1021">
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="occTitle">
+          <input type="text" class="form-check-input form-control" id="occTitle">
           <label for="occTitle">Job Title</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="totalEmployed">
+          <input type="text" class="form-check-input form-control" id="totalEmployed">
           <label for="Total Employed">Total Employed</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="jobs1000">
+          <input type="text" class="form-check-input form-control" id="jobs1000">
           <label for="jobs1000">Amount of Jobs per 1,000</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="locQ">
+          <input type="text" class="form-check-input form-control" id="locQ">
           <label for="locQ">Location Quotient</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="hMean">
+          <input type="text" class="form-check-input form-control" id="hMean">
           <label for="hMean">Hourly Average</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="aMean">
+          <input type="text" class="form-check-input form-control" id="aMean">
           <label for="aMean">Annual Average</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="hMedian">
+          <input type="text" class="form-check-input form-control" id="hMedian">
           <label for="hMedian">Hourly Median</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-check-input" id="aMedian">
+          <input type="text" class="form-check-input form-control" id="aMedian">
           <label for="aMedian">Annual Median</label>
         </div>
         <button type="submit" class="btn btn-primary" id="formSubmit">Form Submit</button>
       </form>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-12">
-      <footer>
-        <div class="container">
-          <h6 class="footer__title navbar-brand">Created By</h6>
+      <div class="row">
+        <div class="col-12">
+          <footer>
+            <div class="container">
+              <h6 class="footer__title navbar-brand">Created By</h6>
 
-          <div class="row">
-            <div class="col-6">
+              <div class="row">
+                <div class="col-6">
 
-              <p class="footer__info">
-                <a class="footer__link" title="Portfolio" href="https://anees05.github.io/Responsive-Portfolio/">
-                  Anees Adams
-                </a> |
-                <a class="footer__link" href="https://www.linkedin.com/in/anees-adams-606043188/">
-                  LinkedIn
-                </a> |
-                <a class="footer__link" href="https://github.com/anees05">
-                  GitHub
-                </a>
-              </p>
-              <p class="footer__info">
-                <a class="footer__link" title="Portfolio" href="https://tonygnc1.github.io/Responsive-Portfolio/">
-                  Tony Goldsmith
-                </a>
-                |
-                <a class="footer__link" href="">
-                  LinkedIn
-                </a> |
-                <a class="footer__link" href="https://github.com/tonygnc1">
-                  GitHub
-                </a>
-              </p>
-            </div>
-            <div class="col-6">
+                  <p class="footer__info">
+                    <a class="footer__link" title="Portfolio" href="https://anees05.github.io/Responsive-Portfolio/">
+                      Anees Adams
+                    </a> |
+                    <a class="footer__link" href="https://www.linkedin.com/in/anees-adams-606043188/">
+                      LinkedIn
+                    </a> |
+                    <a class="footer__link" href="https://github.com/anees05">
+                      GitHub
+                    </a>
+                  </p>
+                  <p class="footer__info">
+                    <a class="footer__link" title="Portfolio" href="https://tonygnc1.github.io/Responsive-Portfolio/">
+                      Tony Goldsmith
+                    </a>
+                    |
+                    <a class="footer__link" href="">
+                      LinkedIn
+                    </a> |
+                    <a class="footer__link" href="https://github.com/tonygnc1">
+                      GitHub
+                    </a>
+                  </p>
+                </div>
+                <div class="col-6">
 
-              <p class="footer__info">
-                <a class="footer__link" title="Portfolio" href="https://lcapps56.github.io/">
-                  Leland Capps
-                </a>
-                |
-                <a class="footer__link" href="https://www.linkedin.com/in/leland-capps-935296188/">
-                  LinkedIn
-                </a> |
-                <a class="footer__link" href="https://github.com/Lcapps56">
-                  GitHub
-                </a>
-              </p>
-              <p class="footer__info">
-                <a class="footer__link" title="Portfolio" href="https://caleblmyers.github.io/index.html">
-                  Caleb Myers
-                </a>
-                |
-                <a class="footer__link" href="https://www.linkedin.com/in/caleb-myers/">
-                  LinkedIn
-                </a> |
-                <a class="footer__link" href="https://github.com/caleblmyers">
-                  GitHub
-                </a>
-              </p>
-            </div>
+                  <p class="footer__info">
+                    <a class="footer__link" title="Portfolio" href="https://lcapps56.github.io/">
+                      Leland Capps
+                    </a>
+                    |
+                    <a class="footer__link" href="https://www.linkedin.com/in/leland-capps-935296188/">
+                      LinkedIn
+                    </a> |
+                    <a class="footer__link" href="https://github.com/Lcapps56">
+                      GitHub
+                    </a>
+                  </p>
+                  <p class="footer__info">
+                    <a class="footer__link" title="Portfolio" href="https://caleblmyers.github.io/index.html">
+                      Caleb Myers
+                    </a>
+                    |
+                    <a class="footer__link" href="https://www.linkedin.com/in/caleb-myers/">
+                      LinkedIn
+                    </a> |
+                    <a class="footer__link" href="https://github.com/caleblmyers">
+                      GitHub
+                    </a>
+                  </p>
+                </div>
 
-          </div>
-      </footer>
-      ​
-    </div>
-  </div>
-  <script src="/js/index.js"></script>
+              </div>
+          </footer>
+          ​
+        </div>
+      </div>
+      <script src="/js/index.js"></script>
