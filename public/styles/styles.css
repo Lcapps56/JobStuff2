@@ -19,10 +19,13 @@ a {
 header h1, h4{
   color: white;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
   line-height: 15px;
   font-family: 'Noticia Text', serif;
   font-weight: bold;
+}
+h4 {
+  margin-top: 55px;
 }
 
 /* search  */
