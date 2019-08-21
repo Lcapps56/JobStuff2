@@ -11,6 +11,10 @@ header{
   position: fixed;
   top: 0px;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 header h1, h4{
   color: white;
   text-align: center;
