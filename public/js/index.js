@@ -57,24 +57,13 @@ $(document).ready(function () {
   //   var mapState = $(this).attr("aria-label").trim();
   // })
 
-  $("#submit").on("click", function(event) {
+  $("#submit").on("click", function (event) {
     event.preventDefault();
-    var Values = {
-      query: $("#type").val().trim(),
-      state: $("#location").val().trim(),
-      code: $("#jobsList").val().trim()
-    }
-    console.log(Values);
-    $.ajax("/results", {
-      type: "POST",
-      data: Values
-    }).then(function() {
-      console.log("Post sent");
-      $.ajax("/results", {
-        type: "GET"
-      }).then(function() {
-        console.log("GET sent");
-      });
-    })
+
+    var query = $("#type").val().trim()
+    var state = $("#location").val().trim()
+    var code = $("#jobsList").val().trim()
+    console.log(query, state, code)
+    window.location.assign("/results/" + query + "/" + state + "/" + code)
   });
 });
