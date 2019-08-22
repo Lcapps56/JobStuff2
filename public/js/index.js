@@ -28,17 +28,16 @@ $("#formSubmit").on("click", function (event) {
   };
 
   $.post("/api/jobs", newJob).then(function (data) {
-    console.log(data);
+    $("#stateCode").val("");
+    $("#occCode").val("");
+    $("#occTitle").val("");
+    $("#totalEmployed").val("");
+    $("#jobs1000").val("");
+    $("#locQ").val("");
+    $("#hMean").val("");
+    $("#aMean").val("");
+    $("#hMedian").val("");
+    $("#aMedian").val("");
+    window.location.assign("/")
   });
-
-  $("#stateCode").val("");
-  $("#occCode").val("");
-  $("#occTitle").val("");
-  $("#totalEmployed").val("");
-  $("#jobs1000").val("");
-  $("#locQ").val("");
-  $("#hMean").val("");
-  $("#aMean").val("");
-  $("#hMedian").val("");
-  $("#aMedian").val("");
 });

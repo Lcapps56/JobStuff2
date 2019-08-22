@@ -17,6 +17,10 @@ a {
   text-decoration: none;
   color: white;
 }
+a:hover {
+  text-decoration: none;
+  color: white;
+}
 header h1, h4{
   color: white;
   text-align: center;
@@ -36,12 +40,13 @@ h4 {
   font-family: 'Arvo', serif;
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
-  margin-right: 130px;
+  /* margin-right: 130px; */
 }
 
-#paragraph{
+/* #paragraph{
   margin-right: 40px;
-}
+} */
+
 #submit{
   text-align: center;
   border-radius: 5%;
@@ -51,7 +56,7 @@ h4 {
   border: solid 1px black;
   font-family: 'Arvo', serif;
   font-family: 'Quicksand', sans-serif;
-  margin-right: 100px;
+  /* margin-right: 100px; */
 }
 /* graphics style */
 #map{
@@ -64,7 +69,7 @@ footer{
   height: 50px;
   width: 100%;
   background: #892b2b;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   padding-top: 5px;
   z-index: 1;
@@ -86,11 +91,13 @@ footer h6{
 
 #form{
   max-width: 550px;
-  padding-bottom: 150px;
-  padding-left: 280px;
-  margin-top: none;
+  /* padding-bottom: 150px; */
+  /* padding-left: 280px; */
   align-content: center;
   margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
 }
 
 #stateCode, #occCode, #occTitle, #totalEmployed, #jobs1000, #locQ, #hMean, #aMean, #hMedian, #aMedian{
@@ -106,3 +113,26 @@ footer h6{
   margin-left: 140px;
 }
 
+.results-grid {
+  padding-top: 8rem;
+}
+
+.index-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  margin-left: auto;
+  margin-right: auto;
+}
+label {
+  color: black;
+}
+
+@media only screen and (min-width: 992px){
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

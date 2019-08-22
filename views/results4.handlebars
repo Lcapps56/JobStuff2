@@ -1,0 +1,144 @@
+<header class="mb-5">
+  <a href="/">
+    <h1>Jobs-R-us</h1>
+  </a>
+</header>
+
+<div class="container mt-2 results-grid">
+  <h1 class="text-dark text-center">Showing results for: Marketing Managers</h1>
+  <div class="row mt-5">
+    <div class="col">
+      <section class="results-section">
+        <h3 class="pb-3">Results</h3>
+        <hr>
+        {{#each results}}
+        <h6>State: {{state_code}}</h6>
+        <p>Job Title: {{occ_title}}</p>
+        <p>Median Annual Salary: <strong>${{a_pct50}}</strong></p>
+        <hr>
+        {{/each}}
+      </section>
+    </div>
+    <div class="col">
+      <div style="height: 600px; width: 600px;">
+        <canvas id="bar-chart" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- </div>
+</div> --}}
+
+
+<div class="row footer-row">
+  <div class="col-12">
+    <footer>
+      <div class="container">
+        <h6 class="footer__title navbar-brand">Created By</h6>
+
+        <div class="row">
+          <div class="col-6">
+
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://anees05.github.io/Responsive-Portfolio/">
+                Anees Adams
+              </a> |
+              <a class="footer__link" href="https://www.linkedin.com/in/anees-adams-606043188/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/anees05">
+                GitHub
+              </a>
+            </p>
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://tonygnc1.github.io/Responsive-Portfolio/">
+                Tony Goldsmith
+              </a>
+              |
+              <a class="footer__link" href="">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/tonygnc1">
+                GitHub
+              </a>
+            </p>
+          </div>
+          <div class="col-6">
+
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://lcapps56.github.io/">
+                Leland Capps
+              </a>
+              |
+              <a class="footer__link" href="https://www.linkedin.com/in/leland-capps-935296188/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/Lcapps56">
+                GitHub
+              </a>
+            </p>
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://caleblmyers.github.io/index.html">
+                Caleb Myers
+              </a>
+              |
+              <a class="footer__link" href="https://www.linkedin.com/in/caleb-myers/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/caleblmyers">
+                GitHub
+              </a>
+            </p>
+          </div>
+
+        </div>
+    </footer>
+
+  </div>
+</div>
+<script src="/js/results.js"></script>
+
+<script>
+  var arr = {
+    colors: []
+  }
+
+  for (let i = 0; i < 5; i++) {
+    arr.colors.push(`rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`)
+  }
+
+  var barChart = $("#bar-chart");
+  var chart = new Chart(barChart, {
+    type: "bar",
+    data: {
+      labels: ["IA", "IN", "KY", "AK", "WY"],
+      datasets: [{
+        label: "Median Annual Salary",
+        backgroundColor: arr.colors,
+        data: ["98190", "96760", "95590", "93160", "92200"]
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Annual Salary"
+          },
+          ticks: {
+            // Include a dollar sign in the ticks
+            callback: function (value, index, values) {
+              return "$" + value;
+            }
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "State"
+          }
+        }]
+      }
+    }
+  });
+</script>
