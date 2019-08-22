@@ -1,99 +1,91 @@
+<header>
+  <div>
+    <h1><a href="/">Jobs-R-us</a></h1>
+    <h4>Search for any information, for any job, anywhere in the U.S.</h4>
+  </div>
+</header>
+
 <div class="row">
-  <header>
+  <section class="index-section">
     <div class="col">
-      <h1><a href="/">Jobs-R-us</a></h1>
+      <div id="search">
+        <p id="paragraph">I want to view the <select id="type">
+            <option value="1">States where THIS jobs is most common</option>
+            <option value="2">Most common job</option>
+            <option value="3">Highest paying job</option>
+            <option value="4">States with the highest average salary</option>
+            {{!-- <option value="5">Everything about THIS job</option>
+            <option value="6">Everything anout THIS state</option> --}}
+          </select> in
+          <select id="location">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select> for
+          <select id="jobsList">
+            {{#each jobs}}
+            <option value="{{occ_code}}">{{occ_title}}</option>
+            {{/each}}
+          </select>
+        </p>
 
-      <h4>Search for any information, for any job, anywhere in the U.S.</h4>
-
-    </div>
-  </header>
-
-  <div class="row">
-    <div class="col-md-2">
-    </div>
-
-    <section>
-      <div class="col-md-8">
-        <div id="search">
-          <p id="paragraph">I want to view the <select id="type">
-              <option value="1">States where THIS jobs is most common</option>
-              <option value="2">Most common Job</option>
-              <option value="3">Highest paying job</option>
-              <option value="4">AVG wages (annual/hourly)</option>
-              <option value="5">Everything about THIS job</option>
-              <option value="6">Everything anout THIS state</option>
-            </select> in
-            <select id="location">
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="DC">District Of Columbia</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select> for
-            <select id="jobsList">
-              {{#each jobs}}
-              <option value="{{occ_code}}">{{occ_title}}</option>
-              {{/each}}
-            </select>
-          </p>
-          ​
-        </div>
       </div>
-      <div class="row">
-        <div class="col-md-2">
-        </div>
+    </div>
+    <div class="row my-4">
+      <div class="col">
         <button id="submit">View Statistics</button>
       </div>
+    </div>
 
-
-      {{!-- </div>
-  <div class="row">
+    {{!-- <div class="row">
     <div class="col">
       <div id="map">
         <script src="https://www.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
@@ -129,118 +121,119 @@
         </script>
       </div>
       </section>
-      ​
     </div>
   </div> --}}
 
-      <form action="/api/jobs" method="POST" id="form">
-        <div class="form-group">
-          <label for="stateCode">State Code</label>
-          <input type="email" class="form-control" id="stateCode" placeholder="NC">
-        </div>
-        <div class="form-group">
-          <label for="occCode">Occupational Code</label>
-          <input type="text" class="form-control" id="occCode" placeholder="11-1021">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="occTitle">
-          <label for="occTitle">Job Title</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="totalEmployed">
-          <label for="Total Employed">Total Employed</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="jobs1000">
-          <label for="jobs1000">Amount of Jobs per 1,000</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="locQ">
-          <label for="locQ">Location Quotient</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="hMean">
-          <label for="hMean">Hourly Average</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="aMean">
-          <label for="aMean">Annual Average</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="hMedian">
-          <label for="hMedian">Hourly Median</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-check-input form-control" id="aMedian">
-          <label for="aMedian">Annual Median</label>
-        </div>
-        <button type="submit" class="btn btn-primary" id="formSubmit">Form Submit</button>
-      </form>
-
-      <div class="row">
-        <div class="col-12">
-          <footer>
-            <div class="container">
-              <h6 class="footer__title navbar-brand">Created By</h6>
-
-              <div class="row">
-                <div class="col-6">
-
-                  <p class="footer__info">
-                    <a class="footer__link" title="Portfolio" href="https://anees05.github.io/Responsive-Portfolio/">
-                      Anees Adams
-                    </a> |
-                    <a class="footer__link" href="https://www.linkedin.com/in/anees-adams-606043188/">
-                      LinkedIn
-                    </a> |
-                    <a class="footer__link" href="https://github.com/anees05">
-                      GitHub
-                    </a>
-                  </p>
-                  <p class="footer__info">
-                    <a class="footer__link" title="Portfolio" href="https://tonygnc1.github.io/Responsive-Portfolio/">
-                      Tony Goldsmith
-                    </a>
-                    |
-                    <a class="footer__link" href="">
-                      LinkedIn
-                    </a> |
-                    <a class="footer__link" href="https://github.com/tonygnc1">
-                      GitHub
-                    </a>
-                  </p>
-                </div>
-                <div class="col-6">
-
-                  <p class="footer__info">
-                    <a class="footer__link" title="Portfolio" href="https://lcapps56.github.io/">
-                      Leland Capps
-                    </a>
-                    |
-                    <a class="footer__link" href="https://www.linkedin.com/in/leland-capps-935296188/">
-                      LinkedIn
-                    </a> |
-                    <a class="footer__link" href="https://github.com/Lcapps56">
-                      GitHub
-                    </a>
-                  </p>
-                  <p class="footer__info">
-                    <a class="footer__link" title="Portfolio" href="https://caleblmyers.github.io/index.html">
-                      Caleb Myers
-                    </a>
-                    |
-                    <a class="footer__link" href="https://www.linkedin.com/in/caleb-myers/">
-                      LinkedIn
-                    </a> |
-                    <a class="footer__link" href="https://github.com/caleblmyers">
-                      GitHub
-                    </a>
-                  </p>
-                </div>
-
-              </div>
-          </footer>
-          ​
-        </div>
+    <h3 class="text-dark mt-5">Submit Job Statistics: </h3>
+    <form action="/api/jobs" method="POST" id="form">
+      <div class="form-group">
+        <label for="stateCode">State Code</label>
+        <input type="email" class="form-control" id="stateCode" placeholder="NC">
       </div>
-      <script src="/js/index.js"></script>
+      <div class="form-group">
+        <label for="occCode">Occupational Code</label>
+        <input type="text" class="form-control" id="occCode" placeholder="11-1021">
+      </div>
+      <div class="form-group">
+        <label for="occTitle">Job Title</label>
+        <input type="text" class="form-control" id="occTitle">
+      </div>
+      <div class="form-group">
+        <label for="Total Employed">Total Employed</label>
+        <input type="text" class="form-control" id="totalEmployed">
+      </div>
+      <div class="form-group">
+        <label for="jobs1000">Amount of Jobs per 1,000</label>
+        <input type="text" class="form-control" id="jobs1000">
+      </div>
+      <div class="form-group">
+        <label for="locQ">Location Quotient</label>
+        <input type="text" class="form-control" id="locQ">
+      </div>
+      <div class="form-group">
+        <label for="hMean">Hourly Average</label>
+        <input type="text" class="form-control" id="hMean">
+      </div>
+      <div class="form-group">
+        <label for="aMean">Annual Average</label>
+        <input type="text" class="form-control" id="aMean">
+      </div>
+      <div class="form-group">
+        <label for="hMedian">Hourly Median</label>
+        <input type="text" class="form-control" id="hMedian">
+      </div>
+      <div class="form-group">
+        <label for="aMedian">Annual Median</label>
+        <input type="text" class="form-control" id="aMedian">
+      </div>
+      <button type="submit" class="btn btn-primary" id="formSubmit">Form Submit</button>
+    </form>
+  </section>
+</div>
+
+<div class="row footer-row">
+  <div class="col-12">
+    <footer>
+      <div class="container">
+        <h6 class="footer__title navbar-brand">Created By</h6>
+
+        <div class="row">
+          <div class="col-6">
+
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://anees05.github.io/Responsive-Portfolio/">
+                Anees Adams
+              </a> |
+              <a class="footer__link" href="https://www.linkedin.com/in/anees-adams-606043188/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/anees05">
+                GitHub
+              </a>
+            </p>
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://tonygnc1.github.io/Responsive-Portfolio/">
+                Tony Goldsmith
+              </a>
+              |
+              <a class="footer__link" href="">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/tonygnc1">
+                GitHub
+              </a>
+            </p>
+          </div>
+          <div class="col-6">
+
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://lcapps56.github.io/">
+                Leland Capps
+              </a>
+              |
+              <a class="footer__link" href="https://www.linkedin.com/in/leland-capps-935296188/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/Lcapps56">
+                GitHub
+              </a>
+            </p>
+            <p class="footer__info">
+              <a class="footer__link" title="Portfolio" href="https://caleblmyers.github.io/index.html">
+                Caleb Myers
+              </a>
+              |
+              <a class="footer__link" href="https://www.linkedin.com/in/caleb-myers/">
+                LinkedIn
+              </a> |
+              <a class="footer__link" href="https://github.com/caleblmyers">
+                GitHub
+              </a>
+            </p>
+          </div>
+
+        </div>
+    </footer>
+  </div>
+</div>
+<script src="/js/index.js"></script>
