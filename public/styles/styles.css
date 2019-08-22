@@ -136,3 +136,11 @@ label {
     margin-right: 0px;
   }
 }
+
+#logo{
+  position: fixed;
+  left: 5px;
+  top: -5px;
+  height: 105px;
+  width: 235px;
+}
